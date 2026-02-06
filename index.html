@@ -90,7 +90,6 @@
     <h1>Create your website</h1>
 
     <input type="text" id="siteName" placeholder="Website name (e.g. My Shop)">
-
     <select id="siteType">
       <option value="">Select website type</option>
       <option>Business</option>
@@ -121,7 +120,7 @@
     }
 
     function generateSite() {
-      const name = document.getElementById("siteName").value;
+      const name = document.getElementById("siteName").value.trim();
       const type = document.getElementById("siteType").value;
 
       if (!name || !type) {
@@ -132,8 +131,12 @@
       document.getElementById("step2").classList.remove("active");
       document.getElementById("step3").classList.add("active");
 
-      document.getElementById("resultLink").innerText =
-        "https://yourwebsite.tiktop.simple/" + name.replace(/\s+/g, "").toLowerCase();
+      // Demo URL (fake, just for user experience)
+      const formattedName = name.replace(/\s+/g, "").toLowerCase();
+      const formattedType = type.toLowerCase();
+      const demoLink = `https://yourwebsite.tiktop.simple/${formattedName}`;
+
+      document.getElementById("resultLink").innerText = demoLink;
     }
   </script>
 
