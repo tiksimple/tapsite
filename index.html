@@ -1,11 +1,141 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>TikTop Simple</title>
+  <meta charset="UTF-8">
+  <title>TikTop Simple – No-Code Website Builder</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f5f7fb;
+      color: #222;
+      text-align: center;
+    }
+
+    .screen {
+      display: none;
+      padding: 40px 20px;
+      max-width: 420px;
+      margin: auto;
+    }
+
+    .active {
+      display: block;
+    }
+
+    h1 {
+      font-size: 26px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+      color: #555;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 14px;
+      margin: 12px 0;
+      font-size: 16px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 15px;
+      font-size: 18px;
+      background: #2563eb;
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    .success {
+      font-size: 22px;
+      color: #16a34a;
+      margin-bottom: 10px;
+    }
+
+    .link-box {
+      background: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 15px;
+      word-break: break-all;
+      font-size: 14px;
+    }
+  </style>
 </head>
 <body>
-    <h1>Welcome to TikTop Simple</h1>
-    <p>This is your main home page.</p>
+
+  <!-- STEP 1: LANDING -->
+  <div class="screen active" id="step1">
+    <h1>Build your website in 60 seconds</h1>
+    <p>No code. No confusion.</p>
+    <button onclick="goToStep2()">Create Website</button>
+  </div>
+
+  <!-- STEP 2: SIMPLE FORM -->
+  <div class="screen" id="step2">
+    <h1>Create your website</h1>
+
+    <input type="text" id="siteName" placeholder="Website name (e.g. My Shop)">
+
+    <select id="siteType">
+      <option value="">Select website type</option>
+      <option>Business</option>
+      <option>Shop</option>
+      <option>Personal</option>
+      <option>Creator</option>
+    </select>
+
+    <button onclick="generateSite()">Generate My Website</button>
+  </div>
+
+  <!-- STEP 3: RESULT -->
+  <div class="screen" id="step3">
+    <div class="success">🎉 Your website is ready!</div>
+    <p>You can view your website below</p>
+
+    <div class="link-box" id="resultLink">
+      <!-- link will appear here -->
+    </div>
+
+    <button onclick="alert('Editing coming soon')">Edit Website</button>
+  </div>
+
+  <script>
+    function goToStep2() {
+      document.getElementById("step1").classList.remove("active");
+      document.getElementById("step2").classList.add("active");
+    }
+
+    function generateSite() {
+      const name = document.getElementById("siteName").value;
+      const type = document.getElementById("siteType").value;
+
+      if (!name || !type) {
+        alert("Please fill all details");
+        return;
+      }
+
+      document.getElementById("step2").classList.remove("active");
+      document.getElementById("step3").classList.add("active");
+
+      document.getElementById("resultLink").innerText =
+        "https://yourwebsite.tiktop.simple/" + name.replace(/\s+/g, "").toLowerCase();
+    }
+  </script>
+
 </body>
 </html>
