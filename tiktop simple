@@ -1,1 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>TikTop Simple</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f0f4f8;
+        }
+        h1 {
+            color: #1da1f2;
+        }
+        p {
+            color: #333;
+        }
+        button {
+            background-color: #1da1f2;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #0d95e8;
+        }
+        #websiteList {
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to TikTop Simple!</h1>
+    <p>This is your first page. Start building websites easily.</p>
 
+    <!-- Dashboard Section -->
+    <h2>Dashboard</h2>
+    <button id="newSiteBtn">Create New Website</button>
+    <div id="websiteList">
+        <!-- User websites will show here -->
+    </div>
+
+    <script>
+        document.getElementById("newSiteBtn").addEventListener("click", function(){
+            alert("Website creation coming soon!");
+        });
+    </script>
+</body>
+</html>
